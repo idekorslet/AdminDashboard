@@ -1,0 +1,182 @@
+/* Warna sidebar saat tema gelap */
+body.dark-theme .sidebar {
+    background-color: #333; /* Warna latar sidebar (tema gelap) */
+    color: #fff; /* Warna teks sidebar (tema gelap) */
+}
+
+/* Warna teks menu saat tema gelap */
+body.dark-theme .sidebar ul li a {
+    color: #fff; /* Warna teks menu (tema gelap) */
+}
+
+body.dark-theme .sidebar ul li:hover {
+    background-color: #444; /* Warna latar hover (tema gelap) */
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background-color: #fff; /* Warna latar sidebar (tema terang) */
+    color: #333; /* Warna teks sidebar (tema terang) */
+    padding: 15px;
+    transition: background-color 0.3s, color 0.3s; /* Transisi untuk tema gelap/terang */
+    display: flex;
+    flex-direction: column; /* Mengatur tata letak sidebar secara vertikal */
+    justify-content: space-between; /* Menempatkan menu di atas dan tombol di bawah */
+}
+
+/* Gaya untuk menu di sidebar */
+/* CSS untuk Menu dan Ikon */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex; /* Mengatur tata letak icon dan teks secara horizontal */
+    align-items: center; /* Menyelaraskan icon dan teks secara vertikal */
+}
+
+.sidebar ul li a {
+    color: #333; /* Warna teks menu (tema terang) */
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    transition: color 0.3s; /* Transisi untuk tema gelap/terang */
+}
+
+.sidebar ul li .menu-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Efek hover pada menu */
+.sidebar ul li:hover {
+    background-color: #f0f0f0; /* Warna latar hover (tema terang) */
+}
+
+/* Gaya untuk menu aktif */
+.sidebar ul li.active {
+    background-color: #ddd; /* Warna latar menu aktif (tema terang) */
+    color: #333; /* Warna teks menu aktif (tema terang) */
+}
+
+body.dark-theme .sidebar ul li.active {
+    background-color: #555; /* Warna latar menu aktif (tema gelap) */
+    color: #fff; /* Warna teks menu aktif (tema gelap) */
+} 
+
+/* Logo di sidebar */
+.logo {
+    text-align: center; /* Memposisikan logo di tengah */
+    padding: 20px 0; /* Memberikan jarak atas dan bawah */
+    border-bottom: 1px solid #ddd; /* Garis pemisah antara logo dan menu (tema terang) */
+    margin-bottom: 20px; /* Jarak antara logo dan menu */
+}
+
+body.dark-theme .logo {
+    border-bottom: 1px solid #555; /* Garis pemisah antara logo dan menu (tema gelap) */
+}
+
+.logo img {
+    max-width: 80%; /* Lebar maksimum logo */
+    height: auto; /* Menjaga aspek rasio logo */
+}
+
+/* CSS untuk Logo dan Tombol Toggle */
+.logo-and-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+/* Efek transisi untuk lebar sidebar */
+.sidebar {
+    transition: width 0.3s ease-in-out;
+}
+
+/* Sembunyikan teks menu secara perlahan */
+.sidebar ul li a {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Saat sidebar diminimize */
+.sidebar.minimized {
+    width: 80px; /* Lebar sidebar mengecil */
+}
+
+/* Sembunyikan teks dengan animasi saat sidebar mengecil */
+.sidebar.minimized ul li a {
+    opacity: 0;
+    display: none;
+    pointer-events: none; /* Menghindari interaksi dengan teks tersembunyi */
+}
+
+/* Saat sidebar diperbesar kembali */
+.sidebar:not(.minimized) ul li a {
+    opacity: 1;
+    pointer-events: auto; /* Kembalikan interaksi dengan teks */
+}
+
+
+.sidebar.minimized .logo img {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+.sidebar.minimized ul {
+    display: flex;
+    flex-direction: column; /* Susun menu secara vertikal */
+    align-items: center; /* Pusatkan menu secara horizontal */
+    padding: 0; /* Hilangkan padding default */
+    justify-content: start; /* Pusatkan ikon secara vertikal */
+    height: 100%; /* Pastikan ikon tetap di tengah secara vertikal */
+}
+
+.sidebar.minimized ul li {
+    display: flex;
+    justify-content: center; /* Pusatkan ikon secara horizontal */
+    align-items: center; /* Pusatkan ikon secara vertikal */
+    width: 100%; /* Lebar penuh */
+    padding: 10px 0; /* Berikan padding atas dan bawah */
+    margin: 0; /* Hilangkan margin default */
+    margin-top: 10px; /* Jarak antara icon garis tiga dan menu */
+}
+
+.sidebar.minimized ul li .menu-icon {
+    margin-right: 0; /* Hilangkan margin kanan */
+}
+
+.sidebar.minimized .themeSwitch {
+    display: none; /* Sembunyikan theme switch saat diminimize */
+}
+
+.sidebar.minimized .toggle-sidebar .toggle-icon {
+    display: block; /* Tampilkan icon 3 garis horizontal */
+}
+
+/* Tombol Toggle */
+.toggle-sidebar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+}
+
+body.dark-theme .toggle-sidebar {
+    color: #eee;
+}
+
+.sidebar.minimized .toggle-sidebar {
+    display: block; /* Tampilkan tombol toggle saat sidebar diminimize */
+}
