@@ -14,3 +14,7 @@ Testing admin dashboard
 
 ## Support
 <a href="https://buymeacoffee.com/idekorslet"><img alt='Buy me a coffee' width="180" src="https://user-images.githubusercontent.com/80518183/216806363-a11d0282-517a-4512-9733-567e0d547078.png"> </a>
+
+## Referensi
+- Tombol toggle theme: https://uiverse.io/
+- AI
