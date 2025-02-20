@@ -1,0 +1,26 @@
+name: Deploy to dev.sistem-config.cloud
+on:
+  push:
+    branches: [ main ]  # Trigger ketika ada push ke branch main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    environment:
+      name: development
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }} # isi dengan IP VPS atau domain target
+          username: ${{ secrets.USERNAME }} # username yang digunakan di VPS
+          key: ${{ secrets.SSH_KEY }} # SSH Key private di VPS
+          port: ${{ secrets.SSH_PORT }} # sesuaikan port SSH di VPS
+          script: |
+            git config --global --add safe.directory /var/www/development/AdminDashboard
+            cd /var/www/development/AdminDashboard
+            git pull origin main
+            # sudo /bin/systemctl restart nginx.service # optional & edit sudoers
